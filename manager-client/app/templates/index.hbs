@@ -2,7 +2,11 @@
   {{#if allUpToDate}}
     All Up-to-date
   {{else}}
-    Upgrade All
+      {{#if allUpToDate}}
+        Upgrade All
+      {{else}}
+        Update Disabled
+      {{/if}}
   {{/if}}
 </button>
 

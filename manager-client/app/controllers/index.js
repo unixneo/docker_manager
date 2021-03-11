@@ -9,7 +9,11 @@ export default Controller.extend({
     "managerRepo.upToDate",
     "allUpToDate",
     function() {
-      return !this.get("managerRepo.upToDate") || this.get("allUpToDate");
+      if (false) 
+        return !this.get("managerRepo.upToDate") || this.get("allUpToDate");
+      else
+        return true;
+      end
     }
   ),
 
