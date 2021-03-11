@@ -3,7 +3,11 @@
     {{#if versionCheck.upToDate}}
       <a href="{{href}}" data-auto-route="true">{{i18n "docker.link_to_upgrade"}}</a>
     {{else}}
-      {{i18n "docker.upgrade"}} <a href="{{href}}" data-auto-route="true">{{i18n "docker.perform_upgrade"}}</a>
+      {{#if false}}
+        {{i18n "docker.upgrade"}} <a href="{{href}}" data-auto-route="true">{{i18n "docker.perform_upgrade"}}</a>
+      {{else}}
+        Update Disabled
+      {{/if}}
     {{/if}}
   </th>
 {{/if}}

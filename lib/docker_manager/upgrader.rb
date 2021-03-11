@@ -19,6 +19,8 @@ class DockerManager::Upgrader
   end
 
   def upgrade
+    raise "Updading from UI not permitted" if GlobalSetting.disable_docker_manager_update?
+    
     @repos.each do |repo|
       return unless repo.start_upgrading
     end
