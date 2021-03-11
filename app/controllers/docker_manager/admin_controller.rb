@@ -85,7 +85,7 @@ module DockerManager
     end
 
     def upgrade
-      raise "Updading from UI not permitted" if GlobalSetting.disable_docker_manager_update?
+      raise "Updading from UI is not permitted" if GlobalSetting.disable_docker_manager_update?
       repo = find_repos(params[:path])
       raise Discourse::NotFound unless repo.present?
       script_path = File.expand_path(File.join(__dir__, '../../../scripts/docker_manager_upgrade.rb'))

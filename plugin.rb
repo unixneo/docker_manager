@@ -2,9 +2,9 @@
 
 # name: docker_manager
 # about: Docker manager for Discourse image
-# version: 0.1
-# authors: Robin Ward, Sam Saffron
-# url: https://github.com/discourse/docker_manager
+# version: 0.11
+# authors: Robin Ward, Sam Saffron, Neo
+# url: https://github.com/unixneo/docker_manager
 
 if !defined? ::Discourse.redis
   # HACK: make Discourse.redis work on old versions of Discourse
