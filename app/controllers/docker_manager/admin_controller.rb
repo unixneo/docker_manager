@@ -85,22 +85,25 @@ module DockerManager
     end
 
     def upgrade
-      raise "Updading from UI is not permitted" if GlobalSetting.disable_docker_manager_update?
       repo = find_repos(params[:path])
       raise Discourse::NotFound unless repo.present?
       script_path = File.expand_path(File.join(__dir__, '../../../scripts/docker_manager_upgrade.rb'))
 
-      pid = spawn(
-        {
-          'UPGRADE_USER_ID' => current_user.id.to_s,
-          'UPGRADE_PATH' => params[:path].to_s,
-          'UPGRADE_REPO_VERSION' => repo_version(repo).to_s,
-          'RAILS_ENV' => Rails.env
-        },
-        "bundle exec rails runner #{script_path}"
-      )
-      Process.detach(pid)
-      render plain: "OK"
+      if !GlobalSetting.disable_docker_manager_update?
+        pid = spawn(
+          {
+            'UPGRADE_USER_ID' => current_user.id.to_s,
+            'UPGRADE_PATH' => params[:path].to_s,
+            'UPGRADE_REPO_VERSION' => repo_version(repo).to_s,
+            'RAILS_ENV' => Rails.env
+          },
+          "bundle exec rails runner #{script_path}"
+        )
+        Process.detach(pid)
+        render plain: "OK"
+      else
+        render plain: "DISABLED"
+      end
     end
 
     def reset_upgrade
