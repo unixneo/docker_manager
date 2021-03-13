@@ -2,7 +2,7 @@
 
 # name: docker_manager
 # about: Docker manager for Discourse image
-# version: 0.114
+# version: 0.115
 # authors: Robin Ward, Sam Saffron, Neo
 # url: https://github.com/unixneo/docker_manager
 
