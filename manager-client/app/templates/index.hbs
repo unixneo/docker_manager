@@ -1,12 +1,8 @@
 <button disabled={{upgradeAllButtonDisabled}} id="upgrade-all" class="btn" {{action "upgradeAllButton"}}>
   {{#if allUpToDate}}
     All Up-to-date
-  {{else}}
-      {{#if allUpToDate}}
-        Upgrade All
-      {{else}}
-        Update Disabled
-      {{/if}}
+  {{else}}  
+    Update Disabled
   {{/if}}
 </button>
 

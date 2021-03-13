@@ -260,13 +260,14 @@ define("manager-client/adapters/-json-api", [
     var t = Ember.Controller.extend({
       managerRepo: null,
       upgrading: null,
-      upgradeAllButtonDisabled: Ember.computed(
-        "managerRepo.upToDate",
-        "allUpToDate",
-        function () {
-          return !this.get("managerRepo.upToDate") || this.get("allUpToDate");
-        }
-      ),
+      upgradeAllButtonDisabled: true,
+      // upgradeAllButtonDisabled: Ember.computed(
+      //   "managerRepo.upToDate",
+      //   "allUpToDate",
+      //   function () {
+      //     return !this.get("managerRepo.upToDate") || this.get("allUpToDate");
+      //   }
+      // ),
       allUpToDate: Ember.computed("model.@each.upToDate", function () {
         return this.get("model").every(function (e) {
           return e.get("upToDate");
